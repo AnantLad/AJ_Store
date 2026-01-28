@@ -1,0 +1,58 @@
+
+networks:
+  app_network:
+    driver: bridge
+
+volumes:
+  mongo_data:
+
+services:
+  backend:
+    build: ./AJ_Store_Sever
+    container_name: backend
+    restart: always
+    env_file:
+      - .env.production
+    expose:
+      - "4000"
+    depends_on:
+      - mongo
+    networks:
+      - app_network
+
+  # frontend:
+  #   build: ./AJ_Store
+  #   container_name: frontend
+  #   restart: always
+  #   env_file:
+  #     - .env.production
+  #   depends_on:
+  #     - backend
+  #   networks:
+  #     - app_network
+
+  mongo:
+    image: mongo:7
+    container_name: mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: anantlad018
+      MONGO_INITDB_ROOT_PASSWORD: anantlad018
+      MONGO_INITDB_DATABASE: aj_store
+    volumes:
+      - mongo_data:/data/db
+    networks:
+      - app_network
+
+  nginx:
+    build:
+      context: .
+      dockerfile: nginx/Dockerfile  
+    container_name: nginx
+    restart: always
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    networks:
+      - app_network
