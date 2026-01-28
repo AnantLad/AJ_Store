@@ -173,45 +173,47 @@ mongosh
 ### ⚙️ Step 5: Move Project into Linux Home Directory
 
 ⚠️ Recommended: Do NOT run the project directly from /mnt/c
-
+```bash
 mkdir ~/projects
-cp -r /mnt/c/Users/YourName/Desktop/mern-project ~/projects/
-cd ~/projects/mern-project
+cp -r /mnt/c/Users/YourName/Desktop/AJ_Store ~/projects/
+cd ~/projects/AJ_Store
+```
+---
 
-⚙️ Step 6: Backend Setup
+### ⚙️ Step 6: Backend Setup
+```bash
 cd backend
 npm install
-
-
+```
 Create .env file:
-
+```
 nano .env
-
-
+```
 Add:
-
-PORT=5000
-MONGO_URI=mongodb://127.0.0.1:27017/mernapp
-
-
+```
+PORT=4000
+MONGO_URI=mongodb://127.0.0.1:27017/db_name
+```
 Start backend server:
-
-node server.js
-
-
+```
+node server.js or start
+```
 Backend runs at:
+```
+http://localhost:4000
+```
 
-http://localhost:5000
+---
 
-⚙️ Step 7: Frontend Setup
-
+### ⚙️ Step 7: Frontend Setup
 Open a new terminal tab:
-
-cd ~/projects/mern-project/frontend
+```
+cd ~/projects/AJ_Store/frontend
 npm install
-npm start
-
-
+npm run dev
+```
 Frontend runs at:
-
-http://localhost:3000
+```
+http://localhost:5173
+```
+---
