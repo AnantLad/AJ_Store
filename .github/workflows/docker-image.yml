@@ -1,0 +1,36 @@
+name: Build and Push Docker Image
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout source code
+      uses: actions/checkout@v4
+
+    - name: Login to Docker Hub
+      uses: docker/login-action@v3
+      with:
+        username: anantlad28
+        password: ${{ secrets.DOCKER_HUB_TOKEN }}
+
+    - name: Build Docker image
+      run: |
+        docker build -t anantlad28/aj_store:nginx -f nginx/Dockerfile .
+
+    - name: Push Docker image
+      run: |
+        docker push anantlad28/aj_store:nginx
+        
+    - name: Build Docker image
+      run: |
+        docker build -t anantlad28/aj_store:backend ./AJ_Store_Sever
+
+    - name: Push Docker image
+      run: |
+        docker push anantlad28/aj_store:backend
