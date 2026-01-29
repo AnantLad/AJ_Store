@@ -206,3 +206,42 @@ This project uses [**Docker**](https://drive.google.com/file/d/1wMz6ODdqe08i0vEs
 Docker eliminates “works on my machine” issues by packaging the application, runtime, dependencies, and configuration into isolated containers.
 
 ---
+
+
+## 📦 Docker Usage in This Project
+
+The application is split into multiple Docker containers:
+
+- **NGINX Container**
+  - contains build file of frontend
+  - Acts as a reverse proxy
+  - Runs the React application
+  - Routes API requests and serves frontend content
+- **Backend Container**
+  - Runs Node.js + Express REST APIs
+  - Handles authentication, business logic, and database operations
+- **Database Container**
+  - MongoDB database
+  - Data persisted using Docker volumes
+
+Each container runs independently but communicates through a shared Docker network.
+
+---
+
+## 📄 Dockerfile
+
+A **Dockerfile** defines the instructions to build a Docker image for a specific service.  
+It ensures that the application runs consistently across all environments.
+
+Each service (frontend, backend, nginx) has its own Dockerfile.
+
+---
+
+### 🔹 Purpose of Dockerfile
+- Define the base runtime environment
+- Install dependencies
+- Copy application source code
+- Configure build and runtime commands
+- Produce a reusable Docker image
+
+---
