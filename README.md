@@ -198,3 +198,11 @@ npm run dev
 http://localhost:5173
 ```
 ---
+
+## 🐳 Docker & Containerization
+
+This project uses [**Docker**](https://drive.google.com/file/d/1wMz6ODdqe08i0vEsWeTR_AmKWisIS6DL/view?usp=sharing) to containerize all services, ensuring consistent behavior across development, testing, and production environments.
+
+Docker eliminates “works on my machine” issues by packaging the application, runtime, dependencies, and configuration into isolated containers.
+
+---
