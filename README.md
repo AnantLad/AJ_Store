@@ -30,7 +30,7 @@ This project is designed with **real-world production practices** and is suitabl
 ## 🧰 Tech Stack
 
 ### 🌐 Frontend
-- ⚛️ React.js
+- ⚛️ [React.js](https://react.dev)
 - 🎨 Tailwind CSS
 - 🔄 Axios
 - 🧠 Context API
@@ -53,24 +53,13 @@ This project is designed with **real-world production practices** and is suitabl
 
 ---
 
-## 🏗️ Project Architecture
-```bash
-AJ_Store/
-│
-├── frontend/ # React Frontend
-├── backend/ # Node.js + Express APIs
-├── nginx/ # NGINX Configuration
-├── docker-compose.yml # Multi-container setup
-└── README.md
-```
-
 ✔️ Microservice-like separation  
 ✔️ NGINX handles frontend & API routing  
 ✔️ Dockerized for consistent deployment  
 
 ---
 
-## ⚙️ Installation & Setup
+##  Installation & Setup
 ### 1️⃣ Clone Repository
 ```bash
 git clone https://github.com/anantlad/AJ_Store.git
@@ -104,115 +93,107 @@ npm run dev
 ```
 ---
 
+### This all about project works locally or in windows browser (localhost server) but you want to learn **DevOps**, willing to know how things works using **Linux**. Firstly we will see how local deployment using **WSL(UBUNTU)+Windows**.
 
 
-This all about project works locally or in windows browser (localhost server) but you want to learn **DevOps**, willing to know how things works using **Linux**. Firstly we will see how local deployment using **WSL(UBUNTU)+Windows**.
--
-🧠 Prerequisites :
+### 🧠 Prerequisites :
 
 ✔️Windows 10/11
+
 ✔️WSL enabled
 
 ✔️Ubuntu 20.04+
+
 ✔️Node.js (v18+)
 
 ✔️npm
+
 ✔️MongoDB
 
 ---
 
-### ⚙️ Step 1: Open Ubuntu (WSL)
+###  Step 1: Open Ubuntu (WSL)
 
-Open Ubuntu from the Start Menu.
-All commands below should be run inside the Ubuntu terminal.
+- Open Ubuntu from the Start Menu.
+- All commands below should be run inside the Ubuntu terminal.
 
 ---
-
-### ⚙️ Step 2: Update System Packages
+###  Step 2: Update System Packages
 ```bash
 sudo apt update
 sudo apt upgrade -y
 ```
-
 ---
-
-
-### ⚙️ Step 3: Install Node.js & npm
+###  Step 3: Install Node.js & npm
 ```bash
 curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
 sudo apt install nodejs -y
 ```
-Verify installation:
+- Verify installation:
 ```bash
 node -v
 npm -v
 ```
-
 ---
-
-### ⚙️ Step 4: Install MongoDB
+###  Step 4: Install MongoDB
 ```bash
 curl -fsSL https://pgp.mongodb.com/server-6.0.asc | sudo gpg --dearmor -o /usr/share/keyrings/mongodb.gpg
 
-echo "deb [ signed-by=/usr/share/keyrings/mongodb.gpg ] https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/6.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb.list
+echo "deb [ signed-by=/usr/share/keyrings/mongodb.gpg ] https://repo.mongodb.org/apt/ubuntu  jammy/mongodb-org/6.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb.list
 ```
 ```bash
 sudo apt update
 sudo apt install mongodb-org -y
 ```
-Start MongoDB:
+- Start MongoDB:
 ```bash
 sudo service mongod start
 ```
-Check MongoDB
+- Check MongoDB
 ```bash
 mongosh
 ```
 ---
+###  Step 5: Move Project into Linux Home Directory
 
-### ⚙️ Step 5: Move Project into Linux Home Directory
-
-⚠️ Recommended: Do NOT run the project directly from /mnt/c
+- Recommended: Do NOT run the project directly from /mnt/c
 ```bash
 mkdir ~/projects
 cp -r /mnt/c/Users/YourName/Desktop/AJ_Store ~/projects/
 cd ~/projects/AJ_Store
 ```
 ---
-
-### ⚙️ Step 6: Backend Setup
+###  Step 6: Backend Setup
 ```bash
 cd backend
 npm install
 ```
-Create .env file:
+- Create .env file:
 ```
 nano .env
 ```
-Add:
+- Add:
 ```
 PORT=4000
 MONGO_URI=mongodb://127.0.0.1:27017/db_name
 ```
-Start backend server:
+- Start backend server:
 ```
 node server.js or start
 ```
-Backend runs at:
+- Backend runs at:
 ```
 http://localhost:4000
 ```
-
 ---
-
-### ⚙️ Step 7: Frontend Setup
-Open a new terminal tab:
+###  Step 7: Frontend Setup
+- Open a new terminal tab:
 ```
 cd ~/projects/AJ_Store/frontend
 npm install
 npm run dev
 ```
-Frontend runs at:
+- Frontend runs at:
 ```
 http://localhost:5173
 ```
