@@ -245,3 +245,29 @@ Each service (frontend, backend, nginx) has its own Dockerfile.
 - Produce a reusable Docker image
 
 ---
+
+## 🧱 Docker Images & Containers
+
+- **Docker Image**
+  - A blueprint created using a `Dockerfile`
+  - Contains application code and dependencies
+- **Docker Container**
+  - A running instance of a Docker image
+  - Stateless by design (except volumes)
+
+Images are built during deployment and containers are created from those images.
+
+---
+
+## ⚙️ Docker Compose
+
+**Docker Compose** is used to orchestrate multiple containers using a single configuration file.
+
+Key benefits:
+- Single command to start all services
+- Centralized configuration
+- Simplified networking between services
+- Environment-based setup (dev / prod)
+
+```bash
+docker compose up -d --build
