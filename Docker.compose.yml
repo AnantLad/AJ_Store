@@ -8,7 +8,9 @@ volumes:
 
 services:
   backend:
-    build: ./AJ_Store_Sever
+    build: 
+      context: ./Backend
+      dockerfile: ../Dockerfiles/Dockerfile.backend
     container_name: backend
     restart: always
     env_file:
@@ -47,7 +49,7 @@ services:
   nginx:
     build:
       context: .
-      dockerfile: nginx/Dockerfile  
+      dockerfile: Dockerfiles/Dockerfile.nginx  
     container_name: nginx
     restart: always
     ports:

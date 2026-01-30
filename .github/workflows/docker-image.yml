@@ -21,7 +21,7 @@ jobs:
 
     - name: Build Docker image
       run: |
-        docker build -t anantlad28/aj_store:nginx -f nginx/Dockerfile .
+        docker build -t anantlad28/aj_store:nginx -f Dockerfiles/Dockerfile.nginx .
 
     - name: Push Docker image
       run: |
@@ -29,7 +29,7 @@ jobs:
         
     - name: Build Docker image
       run: |
-        docker build -t anantlad28/aj_store:backend ./AJ_Store_Sever
+        docker build -t anantlad28/aj_store:backend Dockerfiles/Dockerfile.backend
 
     - name: Push Docker image
       run: |
