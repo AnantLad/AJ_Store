@@ -29,7 +29,7 @@ jobs:
         
     - name: Build Docker image
       run: |
-        docker build -t anantlad28/aj_store:backend Dockerfiles/Dockerfile.backend
+        docker build -t anantlad28/aj_store:backend -f Dockerfiles/Dockerfile.backend .
 
     - name: Push Docker image
       run: |
