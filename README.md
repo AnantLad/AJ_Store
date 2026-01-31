@@ -1,4 +1,4 @@
-# 🛒 AJ_Store – Quick Commerce E-Commerce Platform
+# 🛒 AJ_Store – E-Commerce Platform
 
 🚀 **AJ_Store** is a quick commerce e-commerce web application** built using the **MERN Stack**.  
 The platform focuses on **fast product delivery experience**, **smooth cart & checkout flow**, and **scalable backend architecture** using **Docker and NGINX**.
@@ -271,3 +271,4 @@ Key benefits:
 
 ```bash
 docker compose up -d --build
+```
