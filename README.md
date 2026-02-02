@@ -208,12 +208,12 @@ Docker eliminates “works on my machine” issues by packaging the application,
 ---
 
 
-## 📦 Docker Usage in This Project
+## Docker Usage in This Project
 
 The application is split into multiple Docker containers:
 
 - **NGINX Container**
-  - contains build file of frontend
+  - Contains build file of frontend
   - Acts as a reverse proxy
   - Runs the React application
   - Routes API requests and serves frontend content
@@ -228,7 +228,7 @@ Each container runs independently but communicates through a shared Docker netwo
 
 ---
 
-## 📄 Dockerfile
+## Dockerfile
 
 A **Dockerfile** defines the instructions to build a Docker image for a specific service.  
 It ensures that the application runs consistently across all environments.
@@ -237,7 +237,7 @@ Each service (frontend, backend, nginx) has its own Dockerfile.
 
 ---
 
-### 🔹 Purpose of Dockerfile
+### Purpose of Dockerfile
 - Define the base runtime environment
 - Install dependencies
 - Copy application source code
@@ -246,7 +246,7 @@ Each service (frontend, backend, nginx) has its own Dockerfile.
 
 ---
 
-## 🧱 Docker Images & Containers
+## Docker Images & Containers
 
 - **Docker Image**
   - A blueprint created using a `Dockerfile`
@@ -259,7 +259,7 @@ Images are built during deployment and containers are created from those images.
 
 ---
 
-## ⚙️ Docker Compose
+## Docker Compose
 
 **Docker Compose** is used to orchestrate multiple containers using a single configuration file.
 
@@ -272,3 +272,31 @@ Key benefits:
 ```bash
 docker compose up -d --build
 ```
+---
+
+### Push images on **Docker Hub**
+
+## Step:1 Login to Docker Hub
+```
+docker login
+```
+---
+
+## Step:2 Build Docker Image
+```
+docker build -t image-name .
+```
+---
+
+## Step:3 Tag Image with Docker Hub Username
+```
+docker tag image-name dockerhub-username/image-name:tag
+```
+---
+
+## Step:4 Push Image to Docker Hub
+```
+docker push dockerhub-username/image-name:tag
+```
+---
+
