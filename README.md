@@ -274,27 +274,27 @@ docker compose up -d --build
 ```
 ---
 
-### Push images on **Docker Hub**
+## Push images on **Docker Hub**
 
-## Step:1 Login to Docker Hub
+### Step 1: Login to Docker Hub
 ```
 docker login
 ```
 ---
 
-## Step:2 Build Docker Image
+### Step 2: Build Docker Image
 ```
 docker build -t image-name .
 ```
 ---
 
-## Step:3 Tag Image with Docker Hub Username
+### Step 3: Tag Image with Docker Hub Username
 ```
 docker tag image-name dockerhub-username/image-name:tag
 ```
 ---
 
-## Step:4 Push Image to Docker Hub
+### Step 4: Push Image to Docker Hub
 ```
 docker push dockerhub-username/image-name:tag
 ```
