@@ -46,7 +46,7 @@ This project is designed with **real-world production practices** and is suitabl
 - 🐳 Docker & Docker Compose
 - 🌐 NGINX (Reverse Proxy)
 - 🧪 Postman
-- 🔧 Git & GitHub
+- 🔧 [Git & GitHub](https://drive.google.com/file/d/1DLgdcDF28smmdWigEr1oorQDpmL6AdvZ/view?usp=sharing)
 
 ---
 
