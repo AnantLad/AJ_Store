@@ -1,6 +1,6 @@
 # 🛒 AJ_Store – E-Commerce Platform
 
-🚀 **AJ_Store** is a quick commerce e-commerce web application** built using the **MERN Stack**.  
+🚀 **AJ_Store** is a **e-commerce web application** built using the **MERN Stack**.  
 The platform focuses on **fast product delivery experience**, **smooth cart & checkout flow**, and **scalable backend architecture** using **Docker and NGINX**.
 
 This project is designed with **real-world production practices** and is suitable for **placements, internships, and full-stack/DevOps roles**.
@@ -34,14 +34,13 @@ This project is designed with **real-world production practices** and is suitabl
 - 🎨 Tailwind CSS - Responsive Design,Small size Bundles,No Naming 
 
 ### 🔙 Backend
-- 🟢 Node.js
-- 🚂 Express.js
-- 🔐 JWT Authentication
-- 🧩 RESTful APIs
+- 🟢 Node.js - JS runtime envionment,Asynchronous & Non-Blocking I/O, Vast Ecosystem(NPM)
+- 🚂 Express.js - JS Framework with RESTful APIs,Middleware and Routing
+- 🔐 JWT Authentication - Stateless Security Mechanism 
+  
 
 ### 🗄️ Database
-- 🍃 MongoDB
-- 📦 Mongoose ODM
+- 🍃 MongoDB 
 
 ### 🚀 DevOps & Tools
 - 🐳 Docker & Docker Compose
@@ -91,7 +90,9 @@ npm run dev
 ```
 ---
 
-### This all about project works locally or in windows browser (localhost server) but you want to learn **DevOps**, willing to know how things works using **Linux**. Firstly we will see how local deployment using **WSL(UBUNTU)+Windows**.
+### Deployment using WSL & Linux
+
+This all about project works locally or in windows browser (localhost server) but you want to learn **DevOps**, willing to know how things works using **Linux**. Firstly we will see how local deployment using **WSL(UBUNTU)+Windows**.
 
 
 ### 🧠 Prerequisites :
