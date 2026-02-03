@@ -30,10 +30,8 @@ This project is designed with **real-world production practices** and is suitabl
 ## 🧰 Tech Stack
 
 ### 🌐 Frontend
-- ⚛️ [React.js](https://react.dev)
-- 🎨 Tailwind CSS
-- 🔄 Axios
-- 🧠 Context API
+- ⚛️ React.js - It is Fast,Reliable and features like.. Reusable components,Virtual DOM,JSX format are makes it high 
+- 🎨 Tailwind CSS - Responsive Design,Small size Bundles,No Naming 
 
 ### 🔙 Backend
 - 🟢 Node.js
