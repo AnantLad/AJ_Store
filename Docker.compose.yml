@@ -9,7 +9,7 @@ volumes:
 services:
   backend:
     build: 
-      context: ./Backend
+      context: .
       dockerfile: Dockerfiles/Dockerfile.backend
     container_name: backend
     restart: always

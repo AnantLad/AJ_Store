@@ -1,13 +1,16 @@
-FROM node 
+FROM node
 
 WORKDIR /app
 
-COPY  Backend/package*.json ./
+COPY Backend/package*.json ./Backend/
+
+WORKDIR /app/Backend
 
 RUN npm install
 
-COPY . .
+COPY Backend .
 
 EXPOSE 4000
 
 CMD ["npm", "start"]
+
