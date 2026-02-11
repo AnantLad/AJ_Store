@@ -16,7 +16,7 @@ services:
     env_file:
       - .env.production
     expose:
-      - "4000"
+      - 4000
     depends_on:
       - mongo
     networks:
@@ -53,7 +53,7 @@ services:
     container_name: nginx
     restart: always
     ports:
-      - "80:80"
+      - 80:80
     depends_on:
       - backend
     networks:
