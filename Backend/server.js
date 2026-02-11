@@ -41,7 +41,7 @@ app.use('/api/address', addressRouter)
 app.use('/api/order',orderRouter)
 
 app.listen(port,() =>{
-    console.log (`server is running on http://backend:${port}`) 
+    console.log ("server is running") 
 })
 
  
