@@ -160,6 +160,116 @@ How Application Load Balancer works:
 
 ## 3. Virtual Private Cloud 
 
+A VPC in Amazon Web Services is a logically isolated virtual network inside AWS where we launch resources like EC2, RDS, etc.
+
+- Think of VPC as your own private data center inside AWS cloud.
+
+You control IP ranges,
+
+- Create subnets
+- Configure routing
+- Control inbound & outbound traffic
+
+### Core Components of a VPC
+
+1️. CIDR Block (IP Range)
+
+- When creating a VPC, you define an IP range using CIDR notation.
+
+Example:
+```
+10.0.0.0/16
+```
+/16 → 65,536 IP addresses
+
+Defines total private network size
+
+- Once created, you can add secondary CIDR blocks later.
+
+2️. Subnets
+- Subnets divide your VPC into smaller networks.
+
+Types:
+ - Public Subnet - Has route to Internet Gateway
+   
+   Used for:
+     - Web servers
+     - Load balancers
+
+- Private Subnet - No direct internet access
+  
+  Used for:
+     - Databases
+     - Backend services
+  
+Example:
+```
+VPC: 10.0.0.0/16
+Public subnet: 10.0.1.0/24
+Private subnet: 10.0.2.0/24
+```
+
+3️. Internet Gateway (IGW)
+
+- Allows communication between VPC and Internet
+- Attached to VPC
+- Required for public subnet internet access
+
+Without IGW → No internet.
+
+4️. Route Tables
+
+- Controls where network traffic goes.
+- Each subnet must be associated with a route table.
+
+Example:
+- Public Route Table
+```
+Destination     Target
+10.0.0.0/16     local
+0.0.0.0/0       igw-id
+```
+- Private Route Table:
+```
+10.0.0.0/16     local
+```
+
+5️. NAT Gateway
+
+Allows private subnet instances to access internet outbound only.
+
+Used for:
+- Software updates
+- API calls
+- Docker image pull
+
+Internet cannot initiate connection to private subnet.
+
+6️. Security Groups (Instance Level Firewall)
+
+- Works at instance level
+- Stateful
+- Allows only specified traffic
+
+Example:
+
+- Allow port 80
+- Allow port 22 from your IP
+
+7️. Network ACL (Subnet Level Firewall)
+
+Works at subnet level
+
+- Stateless
+- Controls inbound & outbound separately
+
+8️. Elastic IP
+
+Static public IP
+
+Used for:
+- public server
+- NAT Gateway
 
 
 
