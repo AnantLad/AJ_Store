@@ -43,10 +43,18 @@ IAM ensures,
 
 ### Components of IAM 
 
-1. IAM Users: It is represents a **person** or **application**.Each user gets Username,password,access key.
-2. IAM Groups: A **group** is collection of **users**.Instead of give permission to each user, we assign **policies** to group
-3. IAM Roles: Role gives temporary credentials. means we create one role and attach one policy to it and use them combine.Commonly used for service-to-service communication.
-4. IAM Policies: Policy means permission document in form of JSON format.It defines Effect(Allow/Deny), Action, Resource.
+1. IAM Users:
+   - It is represents a **person** or **application**.
+   - Each user gets Username,password,access key.
+2. IAM Groups:
+   - A **group** is collection of **users**.
+   - Instead of give permission to each user, we assign **policies** to group
+3. IAM Roles: Role gives temporary credentials.
+   - Means we create one role and attach one policy to it and use them combine.
+   - Commonly used for service-to-service communication.
+4. IAM Policies:
+    - Policy means permission document in form of JSON format.
+    - It defines Effect(Allow/Deny), Action, Resource.
 
 ---
 
@@ -62,32 +70,81 @@ It lets you rent **virtual computers** to run your applications. You pay only fo
 
 1. Amazon Machine Image (AMI)
 
-- Provides thousands of AMIs from AWS.Allows users to create custom AMIs for reuse and consistency
-- Acts as a software blueprint containing the operating system, patches, and required software
+- Pre-configured template for launching EC2 instances
+- Contains OS, patches, and required software
+- Can use AWS-provided or create custom AMIs
 
 2. Instance Types
 
-- Instance types are the hardware profiles of your virtual server.
-- AWS offers a vast array of instance types optimized for different tasks, grouped into families:
-
-    - t family: General Purpose, burstable instances. Perfect for web servers, development environments, and small databases.
-    - m family: General Purpose, balanced instances with a good mix of CPU, memory, and networking.
-    - c family: Compute Optimized, with a high ratio of CPU power to memory. Ideal for CPU-intensive tasks like batch processing, media transcoding, and scientific modeling.
-    - r family: Memory Optimized, with a high ratio of memory to CPU. Used for memory-intensive applications like large databases or in-memory caches.
+- Define hardware configuration (CPU, memory, storage, networking)
+- Grouped into families based on use case:
+  
+  - t family – General purpose, burstable
+  - m family – Balanced resources
+  - c family – Compute optimized
+  - r family – Memory optimized
 
 3. Elastic Block Store (EBS) Volumes
 
-- Provides durable, block-level storage attached to EC2 instances
-- Acts as a virtual hard drive for storing data
-- Persists data independently and can be detached and reattached to different instances
+- Persistent block-level storage for EC2
+- Works like a virtual hard drive
+- Can detach and attach to different instances
 
 4. Security Groups
 
-- A Security Group acts as a virtual firewall for your EC2 instance, controlling all inbound and outbound traffic. 
-- You define rules that specify which protocols (e.g., SSH, HTTP), ports (e.g., 22, 80), and IP address ranges are allowed to send traffic to or receive traffic from your instance.
+- Virtual firewall for EC2 instances
+- Controls inbound and outbound traffic
+- Rules based on protocol, port, and IP range
 
 5. Key Pairs
 
-- A Key Pair, consisting of a public key and a private key, is the set of security credentials used to prove your identity when connecting to a Linux EC2 instance. 
-- AWS stores the public key, and you are responsible for securely storing the private key file (.pem).
-- You will use this private key to SSH into your instance.
+- Public and private key for secure access
+- Used to SSH into Linux EC2 instances
+- Private key (.pem) must be stored securely
+
+---
+
+## Amazon EC2 Auto Scaling
+
+Auto scaling is automatically adjusts **compute capacity** by adding or removing Amazon EC2 instances in response to **demand**.
+
+Auto scaling group,
+
+- Launches new EC2 instances
+- Terminates extra EC2 instances
+- Replaces unhealthy instances
+- Maintains desired number of servers
+
+Example:
+
+Your app normally gets 100 users.
+But during sale 10,000 users traffic come to website.
+
+without ASG,
+- server crashs
+- high CPU requiment
+
+with ASG,
+- AWS automatically adds more instances
+- Distributed traffic
+
+---
+
+
+## Elastic Load Balancing
+
+Load Balancer is automatically distributes incoming application or network traffic across multiple targets—such as Amazon EC2 instances, containers, or IP addresses—within one or more Availability Zones.
+
+### Types of Load Balancers
+
+1. Application Load Balancer (ALB) – HTTP/HTTPS
+2. Network Load Balancer (NLB) – TCP/UDP
+3. Gateway Load Balancer
+
+How Application Load Balancer works:
+
+- Receives HTTP request
+- Checks target group
+- Routes to healthy EC2
+- Performs health checks
+
