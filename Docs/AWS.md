@@ -25,7 +25,15 @@ It’s like **renting electricity** instead of building your own **power plant**
 ---
 # Core AWS services 
 
-## IAM - Identity Access Management 
+- **IAM**
+- **EC2**
+  - **Auto Scaling Groups**
+  - **Load Balancer**
+- **VPC**
+
+---
+
+## 1. IAM - Identity Access Management 
 It is **permission system** of AWS 
 
 IAM work as,
@@ -58,7 +66,7 @@ IAM ensures,
 
 ---
 
-## EC2 - Elastic Compute Cloud 
+## 2. EC2 - Elastic Compute Cloud 
 
 It lets you rent **virtual computers** to run your applications. You pay only for what you use.
 
@@ -147,4 +155,11 @@ How Application Load Balancer works:
 - Checks target group
 - Routes to healthy EC2
 - Performs health checks
+
+---
+
+## 3. Virtual Private Cloud 
+
+
+
 
