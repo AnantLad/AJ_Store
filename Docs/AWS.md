@@ -70,10 +70,10 @@ It lets you rent **virtual computers** to run your applications. You pay only fo
 - Instance types are the hardware profiles of your virtual server.
 - AWS offers a vast array of instance types optimized for different tasks, grouped into families:
 
-- t family (e.g., t2.micro, t3.large): General Purpose, burstable instances. Perfect for web servers, development environments, and small databases.
-- m family (e.g., m5.xlarge): General Purpose, balanced instances with a good mix of CPU, memory, and networking.
-- c family (e.g., c5.large): Compute Optimized, with a high ratio of CPU power to memory. Ideal for CPU-intensive tasks like batch processing, media transcoding, and scientific modeling.
-- r family (e.g., r5.large): Memory Optimized, with a high ratio of memory to CPU. Used for memory-intensive applications like large databases or in-memory caches.
+    - t family: General Purpose, burstable instances. Perfect for web servers, development environments, and small databases.
+    - m family: General Purpose, balanced instances with a good mix of CPU, memory, and networking.
+    - c family: Compute Optimized, with a high ratio of CPU power to memory. Ideal for CPU-intensive tasks like batch processing, media transcoding, and scientific modeling.
+    - r family: Memory Optimized, with a high ratio of memory to CPU. Used for memory-intensive applications like large databases or in-memory caches.
 
 3. Elastic Block Store (EBS) Volumes
 
