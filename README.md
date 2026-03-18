@@ -5,6 +5,8 @@ The platform focuses on **fast product delivery experience**, **smooth cart & ch
 
 This project is designed with **real-world production practices** and is suitable for **placements, internships, and full-stack/DevOps roles**.
 
+Check out the live demo of the application [Here](https://aj-store.anantlad.in).
+
 ---
 
 ## ✨ Features
