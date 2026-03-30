@@ -13,7 +13,8 @@ export const Cart = () => {
         navigate,
         getCartAmount,
         updateCartItem,
-        axios, user
+        axios, user,
+        getAddress, setCartItems, placeOrderAPI
     } = useAppContext();
 
     const [showAddress, setShowAddress] = useState(false);
@@ -35,23 +36,41 @@ export const Cart = () => {
     };
 
     const getUserAddress = async ()=>{
-        try {
-            const {data} = await axios.get('/api/address/get');
-            if(data.success){
-                setAddresses(data.address)
-                if(data.address.length > 0 ){
-                    setSelectedAddress(data.address[0])
-                }
-            }else{
-                toast.error(data.message)
+        const addr = await getAddress();
+        if (addr) {
+            setAddresses(addr);
+            if(addr.length > 0 ){
+                setSelectedAddress(addr[0])
             }
-        } catch (error) {
-            toast.error(error.message)
         }
     }
 
     const placeorder = async () => {
-        // Your logic here
+        try {
+            if (!selectedddress) {
+                return toast.error("Please select a delivery address.");
+            }
+            if (!cartArray || cartArray.length === 0) {
+                return toast.error("Your cart is empty.");
+            }
+            
+            // Format items for backend
+            const orderItems = cartArray.map((item) => ({
+                product: item._id,
+                quantity: item.quantity,
+            }));
+
+            const orderData = {
+                items: orderItems,
+                address: selectedddress._id,
+                userId: user._id
+            };
+
+            await placeOrderAPI(orderData, showpaymetOption);
+            
+        } catch (error) {
+            toast.error(error.message);
+        }
     };
 
     useEffect(() => {

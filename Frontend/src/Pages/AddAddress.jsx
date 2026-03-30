@@ -16,7 +16,7 @@ const InputField = ({ type, placeholder, name, handleChange, address }) => (
 
         
 export default function AddAddress() {
-    const {axios , user , navigate} = useAppContext();
+    const { user , navigate, addAddress} = useAppContext();
 
     const [address, setAddress] = useState({
         userId:"",
@@ -34,19 +34,9 @@ export default function AddAddress() {
     
     const onSubmitHandler = async (e) => {
         e.preventDefault();
-        try {
-            const {data} = await axios.post('/api/address/add' , {
-                address,
-                userId: user._id,
-            });
-            if(data.success){
-                toast.success(data.message)
-                navigate('/cart')
-            }else{
-                toast.error(data.message)
-            }
-        } catch (error) {
-            toast.error(error.message)
+        const success = await addAddress(address);
+        if(success){
+            navigate('/cart')
         }
     }
     const handleChange =(e)=>{

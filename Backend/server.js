@@ -11,6 +11,7 @@ import productRouter from './routes/productRoute.js';
 import cartRouter from './routes/cartRoute.js';
 import addressRouter from './routes/addressRoute.js';
 import orderRouter from './routes/orderRouter.js';
+import contactRouter from './routes/contactRoute.js';
 
 
 
@@ -39,6 +40,7 @@ app.use('/api/product', productRouter)
 app.use('/api/cart', cartRouter)
 app.use('/api/address', addressRouter)
 app.use('/api/order',orderRouter)
+app.use('/api/contact', contactRouter)
 
 app.listen(port,() =>{
     console.log ("server is running") 

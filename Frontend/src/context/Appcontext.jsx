@@ -130,6 +130,67 @@ export const AppContextProvider = ({children}) =>{
      }
 
     
+    // add address
+    const addAddress = async (address) => {
+        try {
+            const { data } = await axios.post("/api/address/add", {
+                address,
+                userId: user._id,
+            });
+            if (data.success) {
+                toast.success(data.message);
+                return true;
+            } else {
+                toast.error(data.message);
+                return false;
+            }
+        } catch (error) {
+            toast.error(error.message);
+            return false;
+        }
+    };
+
+    // get address
+    const getAddress = async () => {
+        try {
+            const { data } = await axios.get("/api/address/get");
+            if (data.success) {
+                return data.address;
+            } else {
+                toast.error(data.message);
+                return [];
+            }
+        } catch (error) {
+            toast.error(error.message);
+            return [];
+        }
+    };
+
+    // place order api
+    const placeOrderAPI = async (orderData, paymentMethod) => {
+        try {
+            if (paymentMethod === "COD") {
+                const { data } = await axios.post("/api/order/cod", orderData);
+                if (data.success) {
+                    toast.success(data.message);
+                    setCartItems({});
+                    navigate('/my-orders');
+                } else {
+                    toast.error(data.message);
+                }
+            } else if (paymentMethod === "Online") {
+                const { data } = await axios.post("/api/order/stripe", orderData);
+                if (data.success && data.session_url) {
+                    window.location.replace(data.session_url);
+                } else {
+                    toast.error(data.message || "Stripe session failed");
+                }
+            }
+        } catch (error) {
+            toast.error(error.message);
+        }
+    };
+
     useEffect(()=>{
         fetchUser()
         fetchSeller()
@@ -155,7 +216,8 @@ export const AppContextProvider = ({children}) =>{
     },[cartItems])
 
     const value = {navigate,user, setUser,isSeller, setIsSeller,showUserLogin , setShowUserLogin , products,currency, addToCart
-        ,updateCartItem ,removeFromCart , cartItems ,searchQuery,setsearchQuery,getCartAmount ,fetchProducts, getCartCout,setProducts,axios
+        ,updateCartItem ,removeFromCart , cartItems ,setCartItems,searchQuery,setsearchQuery,getCartAmount ,fetchProducts, getCartCout,setProducts,axios,
+        addAddress, getAddress, placeOrderAPI
     }
     return <AppContext.Provider value={value}>
         {children}

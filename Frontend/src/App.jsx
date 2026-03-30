@@ -16,6 +16,8 @@ import { Cart } from './Pages/Cart'
 import { MyOrders } from './components/MyOrders'
 
 import AddAddress from './Pages/AddAddress'
+import Contact from './Pages/Contact'
+import Verify from './Pages/Verify'
 import SellerLogin from './components/seller/SellerLogin'
 import SellerLayout from './Pages/seller/SellerLayout'
 import AddProduct from './Pages/seller/AddProduct'
@@ -46,6 +48,8 @@ export const App = () => {
         <Route path = '/my-orders' element ={<MyOrders/>} ></Route>
 
         <Route path = '/add-address' element ={<AddAddress/>} ></Route>
+        <Route path = '/contact' element ={<Contact/>} ></Route>
+        <Route path = '/verify' element={<Verify />} ></Route>
         <Route path = '/seller' element ={isSeller ? <SellerLayout/> : <SellerLogin/>}>
          <Route index element={isSeller ? <AddProduct/> : null}/>
          <Route path="product-list" element={ <ProductList/>}/>
