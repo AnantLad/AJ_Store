@@ -38,7 +38,7 @@ export const MyOrders = () => {
             <div className='border border-gray-300 rounded-lg mb-10 p-4 py-5 max-w-4xl' key={Index}>
                 <p className='flex justify-between md:items-center text-gray-400 md:font-medium max-md:flex-col'>
                     <span> Ordder Id : {order._id}</span>
-                    <span> Payment : {order.paymentType}</span>
+                    <span> Payment : {order.PaymentType}</span>
                     <span> Total Amount :{currency} {order.amount}</span>
                 </p>
                 {order.items.map((item,Index)=>(
@@ -49,11 +49,15 @@ export const MyOrders = () => {
                     } border-gray-300 flex flex-col md:flex-row md:items-center justify-between p-4 py-5 md:gap-16 w-full max-w-4xl`}>
                         <div className='flex items-center mb-4 md:mb-0'>
                             <div className='bg-green-600/10 p-4 rounded-lg'>
-                                <img src={item.product.image[0]} alt="" className='w-16 h-16' />
+                                {item.product && item.product.image && item.product.image[0] ? (
+                                    <img src={item.product.image[0]} alt="" className='w-16 h-16' />
+                                ) : (
+                                    <div className='w-16 h-16 bg-gray-200 flex items-center justify-center text-xs text-gray-400 italic'>No Image</div>
+                                )}
                             </div>
                             <div className='ml-4'>
-                                <h2 className='text-xl font-medium text-gray-800 '>{item.product.name}</h2>
-                                <p>Category : {item.product.category}</p>
+                                <h2 className='text-xl font-medium text-gray-800 '>{item.product ? item.product.name : "Unknown Product"}</h2>
+                                <p>Category : {item.product ? item.product.category : "N/A"}</p>
                             </div>
                         </div>
                         <div className='flex flex-col  justify-center md:ml-8 mb-4 md:mb-0'>
@@ -62,7 +66,7 @@ export const MyOrders = () => {
                             <p>Date : {new Date(order.createdAt).toLocaleDateString()}</p>
                         </div>
                         <p className='text-green-600 text-lg font-medium'>
-                            Amount : {currency}{item.product.offerPrice * item.quantity}
+                            Amount : {currency}{item.product ? item.product.offerPrice * item.quantity : "0"}
                         </p>
                     </div>
 
