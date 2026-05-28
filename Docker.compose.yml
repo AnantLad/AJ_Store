@@ -22,17 +22,6 @@ services:
     networks:
       - app_network
 
-  # frontend:
-  #   build: ./AJ_Store
-  #   container_name: frontend
-  #   restart: always
-  #   env_file:
-  #     - .env.production
-  #   depends_on:
-  #     - backend
-  #   networks:
-  #     - app_network
-
   mongo:
     image: mongo:7
     container_name: mongo
