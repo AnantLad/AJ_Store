@@ -2,7 +2,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 import cookieParser from 'cookie-parser';
 import express from 'express';
-import cors from 'cors'; 
+import cors from 'cors';
 import userRouter from './routes/userRoutes.js';
 import sellerRouter from './routes/sellerRoute.js';
 import productRouter from './routes/productRoute.js';
@@ -24,13 +24,13 @@ app.use(cors({
     credentials: true
 }));
 
-app.get('/api/health', (req, res) => res.send("API is working"));
-app.use('/api/user', userRouter);
-app.use('/api/seller', sellerRouter);
-app.use('/api/product', productRouter);
-app.use('/api/cart', cartRouter);
-app.use('/api/address', addressRouter);
-app.use('/api/order', orderRouter);
-app.use('/api/contact', contactRouter);
+app.get('/health', (req, res) => res.send("API is working"));
+app.use('/user', userRouter);
+app.use('/seller', sellerRouter);
+app.use('/product', productRouter);
+app.use('/cart', cartRouter);
+app.use('/address', addressRouter);
+app.use('/order', orderRouter);
+app.use('/contact', contactRouter);
 
 export default app;
