@@ -3,7 +3,7 @@ import { useAppContext } from '../context/Appcontext';
 import toast from 'react-hot-toast';
 
 export default function Contact() {
-    const { axios, navigate } = useAppContext();
+    const { axios } = useAppContext();
     const [formData, setFormData] = useState({
         name: '',
         email: '',

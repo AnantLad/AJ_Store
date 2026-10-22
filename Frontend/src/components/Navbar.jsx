@@ -29,6 +29,7 @@ import toast from 'react-hot-toast'
          if(searchQuery.length > 0){
           navigate("/products")
          }
+         // eslint-disable-next-line react-hooks/exhaustive-deps
       },[searchQuery])
 
     return (

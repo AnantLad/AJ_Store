@@ -26,6 +26,7 @@ const ProductDetails = () => {
             productsCopy = productsCopy.filter((item)=>product.category === item.category);
             setRelatedProducts(productsCopy.slice(0,5))
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     },[products])
 
     useEffect(()=>{

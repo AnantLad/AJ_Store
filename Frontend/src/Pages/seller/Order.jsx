@@ -25,6 +25,7 @@ export default function Order() {
         if (isSeller) {
             fetchOrder();
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     },[isSeller])
 
   return (

@@ -18,7 +18,6 @@ export const register = async (req , res) => {
 
         const user = await User.create({name , email ,password: hashedpassword})
 
-        console.log('JWT_SECRET:', process.env.JWT_SECRET);
         const token = jwt.sign({id: user._id}, process.env.JWT_SECRET, {expiresIn: '7d'});
 
         res.cookie('token' , token , {

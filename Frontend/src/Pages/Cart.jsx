@@ -13,8 +13,8 @@ export const Cart = () => {
         navigate,
         getCartAmount,
         updateCartItem,
-        axios, user,
-        getAddress, setCartItems, placeOrderAPI
+        user,
+        getAddress, placeOrderAPI
     } = useAppContext();
 
     const [showAddress, setShowAddress] = useState(false);
@@ -53,6 +53,11 @@ export const Cart = () => {
             if (!cartArray || cartArray.length === 0) {
                 return toast.error("Your cart is empty.");
             }
+
+            if (showpaymetOption === "Online") {
+                navigate('/checkout');
+                return;
+            }
             
             // Format items for backend
             const orderItems = cartArray.map((item) => ({
@@ -74,17 +79,19 @@ export const Cart = () => {
     };
 
     useEffect(() => {
-  console.log("Products:", products)
-  console.log("Cart Items:", cartItems)
-  if (products?.length > 0 && cartItems) {
-    getCart()
-  }
-}, [products, cartItems])
+        console.log("Products:", products)
+        console.log("Cart Items:", cartItems)
+        if (products?.length > 0 && cartItems) {
+            getCart()
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [products, cartItems])
 
     useEffect(()=>{
         if(user){
             getUserAddress()
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     },[ user])
 
     if (!products || !Array.isArray(products) || products.length === 0 || !cartItems) {
