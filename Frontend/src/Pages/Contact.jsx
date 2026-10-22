@@ -20,7 +20,7 @@ export default function Contact() {
         e.preventDefault();
         setLoading(true);
         try {
-            const { data } = await axios.post('/api/contact/submit', formData);
+            const { data } = await axios.post('/contact/submit', formData);
             if (data.success) {
                 toast.success(data.message);
                 setFormData({ name: '', email: '', subject: '', message: '' });
@@ -41,63 +41,63 @@ export default function Contact() {
                     <h2 className="text-3xl md:text-4xl text-gray-700 font-semibold mb-2">Get in <span className="text-green-600">Touch</span></h2>
                     <p className="text-gray-500 text-sm md:text-base">We'd love to hear from you. Send us a message and we'll respond as soon as possible.</p>
                 </div>
-                
+
                 <div className="p-8">
                     <form onSubmit={onSubmitHandler} className="space-y-6">
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div className="flex flex-col gap-2">
                                 <label className="text-sm font-medium text-gray-600">Your Name</label>
-                                <input 
+                                <input
                                     className="w-full px-4 py-3 border border-gray-300 rounded-md outline-none focus:border-green-500 focus:ring-1 focus:ring-green-500 transition-all bg-gray-50/50"
                                     type="text"
                                     name="name"
                                     value={formData.name}
                                     onChange={handleChange}
-                                    required 
+                                    required
                                     placeholder="John Doe"
                                 />
                             </div>
                             <div className="flex flex-col gap-2">
                                 <label className="text-sm font-medium text-gray-600">Email Address</label>
-                                <input 
+                                <input
                                     className="w-full px-4 py-3 border border-gray-300 rounded-md outline-none focus:border-green-500 focus:ring-1 focus:ring-green-500 transition-all bg-gray-50/50"
                                     type="email"
                                     name="email"
                                     value={formData.email}
                                     onChange={handleChange}
-                                    required 
+                                    required
                                     placeholder="john@example.com"
                                 />
                             </div>
                         </div>
-                        
+
                         <div className="flex flex-col gap-2">
                             <label className="text-sm font-medium text-gray-600">Subject</label>
-                            <input 
+                            <input
                                 className="w-full px-4 py-3 border border-gray-300 rounded-md outline-none focus:border-green-500 focus:ring-1 focus:ring-green-500 transition-all bg-gray-50/50"
                                 type="text"
                                 name="subject"
                                 value={formData.subject}
                                 onChange={handleChange}
-                                required 
+                                required
                                 placeholder="How can we help?"
                             />
                         </div>
 
                         <div className="flex flex-col gap-2">
                             <label className="text-sm font-medium text-gray-600">Message</label>
-                            <textarea 
+                            <textarea
                                 className="w-full px-4 py-3 border border-gray-300 rounded-md outline-none focus:border-green-500 focus:ring-1 focus:ring-green-500 transition-all bg-gray-50/50 resize-none"
                                 name="message"
                                 value={formData.message}
                                 onChange={handleChange}
-                                required 
+                                required
                                 rows="5"
                                 placeholder="Write your message here..."
                             ></textarea>
                         </div>
 
-                        <button 
+                        <button
                             disabled={loading}
                             className="w-full mt-4 bg-green-600 text-white py-3.5 rounded-md hover:bg-green-700 transition cursor-pointer font-medium text-lg disabled:bg-gray-400 disabled:cursor-not-allowed"
                         >

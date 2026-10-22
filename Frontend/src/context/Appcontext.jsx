@@ -22,7 +22,13 @@ export const AppContextProvider = ({ children }) => {
     const [cartItems, setCartItems] = useState({})
 
 
-    axios.defaults.baseURL = import.meta.env.VITE_BACKEND_URL;
+    // Backend URL configuration
+    // For production, use the root path / so the nginx proxy handles it
+    const backendUrl = import.meta.env.DEV
+        ? '/api/'
+        : 'http://localhost:4000/api/';
+
+    axios.defaults.baseURL = backendUrl;
     axios.defaults.withCredentials = true;
 
     //fetch seller Status

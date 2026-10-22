@@ -1,26 +1,26 @@
 import React from 'react';
-import { useAppContext } from '../context/Appcontext';  
+import { useAppContext } from '../context/Appcontext';
 import toast from 'react-hot-toast';
 
 export const Login = () => {
-    const { setShowUserLogin , setUser ,axios, navigate } = useAppContext();
+    const { setShowUserLogin, setUser, axios, navigate } = useAppContext();
     const [state, setState] = React.useState("login");
     const [name, setName] = React.useState("");
     const [email, setEmail] = React.useState("");
     const [password, setPassword] = React.useState("");
 
-    const onsubmitHandler = async (event) =>{
+    const onsubmitHandler = async (event) => {
         try {
             event.preventDefault();
-            
-            const { data }= await axios.post(`/api/user/${state}`,{
-                name , email , password
+
+            const { data } = await axios.post(`/user/${state}`, {
+                name, email, password
             });
-            if(data.success){
+            if (data.success) {
                 navigate('/')
                 setUser(data.user)
                 setShowUserLogin(false)
-            }else{
+            } else {
                 toast.error(data.message)
             }
         } catch (error) {
@@ -29,11 +29,11 @@ export const Login = () => {
     }
 
     return (
-        <div onClick={()=> setShowUserLogin(false)} className="fixed inset-0 flex items-center justify-center bg-black/50 z-50">
+        <div onClick={() => setShowUserLogin(false)} className="fixed inset-0 flex items-center justify-center bg-black/50 z-50">
             <div className="relative">
-            
+
                 {/* Login Form */}
-                <form onSubmit={onsubmitHandler} onClick={(e)=> e.stopPropagation()}className="flex flex-col gap-4 items-start p-8 py-12 w-80 sm:w-[352px] rounded-lg shadow-xl border border-gray-200 bg-white">
+                <form onSubmit={onsubmitHandler} onClick={(e) => e.stopPropagation()} className="flex flex-col gap-4 items-start p-8 py-12 w-80 sm:w-[352px] rounded-lg shadow-xl border border-gray-200 bg-white">
                     <p className="text-2xl font-medium m-auto">
                         <span className="text-green-600">User</span> {state === "login" ? "Login" : "Sign Up"}
                     </p>
